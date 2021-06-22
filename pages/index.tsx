@@ -18,8 +18,15 @@ const Page = () => {
 
     await auth0.loginWithPopup(AUTH0_PARAM);
 
-    const user: Object = await auth0.getUser(AUTH0_PARAM);
-    setProfile(user);
+    try {
+      const token = await auth0.getTokenSilently(AUTH0_PARAM);
+      setAuth0Token(token);
+
+      const user = await auth0.getUser(AUTH0_PARAM);
+      setProfile(user);
+    } catch (e) {
+      console.log(e);
+    }
   }, [auth0]);
 
   const logout = useCallback(() => {
@@ -34,7 +41,6 @@ const Page = () => {
     try {
       const token = await auth0.getTokenSilently(AUTH0_PARAM);
       setAuth0Token(token);
-      console.log(token);
 
       const user = await auth0.getUser(AUTH0_PARAM);
       setProfile(user);
