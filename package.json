@@ -1,0 +1,26 @@
+{
+  "name": "auth0",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "jwt-decode": "^3.1.2",
+    "next": "10.2.3",
+    "react": "17.0.2",
+    "react-copy-to-clipboard": "^5.0.3",
+    "react-dom": "17.0.2",
+    "react-toastify": "^7.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.2",
+    "@types/react": "^17.0.11",
+    "@types/react-copy-to-clipboard": "^5.0.0",
+    "@types/react-dom": "17.0.2",
+    "prettier": "^2.3.1",
+    "typescript": "^4.3.2"
+  }
+}
