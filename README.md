@@ -1,4 +1,4 @@
-# next-auth-auth0-demo
+# spa-nextjs-auth0-demo
 
 ```bash
 $ yarn
