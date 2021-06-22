@@ -23,7 +23,9 @@ const Page = () => {
   }, [auth0]);
 
   const logout = useCallback(() => {
-    auth0.logout();
+    auth0.logout({
+      returnTo: process.env.NEXT_PUBLIC_AUTH0_LOGOUT_URI,
+    });
   }, [auth0]);
 
   useMemo(async () => {
