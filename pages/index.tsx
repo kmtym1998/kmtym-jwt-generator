@@ -11,7 +11,7 @@ const Page = () => {
 
   const [auth0, setAuth0] = useState<any>();
   const [profile, setProfile] = useState<Object>();
-  const [auth0Token, setAuth0Token] = useState<string>();
+  const [idToken, setIdToken] = useState<string>();
 
   const login = useCallback(async () => {
     if (!auth0) return;
@@ -19,8 +19,8 @@ const Page = () => {
     await auth0.loginWithPopup(AUTH0_PARAM);
 
     try {
-      const token = await auth0.getTokenSilently(AUTH0_PARAM);
-      setAuth0Token(token);
+      const idTokenClaims = await auth0.getIdTokenClaims(AUTH0_PARAM);
+      setIdToken(idTokenClaims.__raw);
 
       const user = await auth0.getUser(AUTH0_PARAM);
       setProfile(user);
@@ -39,8 +39,8 @@ const Page = () => {
     if (!auth0) return;
 
     try {
-      const token = await auth0.getTokenSilently(AUTH0_PARAM);
-      setAuth0Token(token);
+      const idTokenClaims = await auth0.getIdTokenClaims(AUTH0_PARAM);
+      setIdToken(idTokenClaims.__raw);
 
       const user = await auth0.getUser(AUTH0_PARAM);
       setProfile(user);
@@ -74,7 +74,7 @@ const Page = () => {
           Decoded JWT
           <pre>{JSON.stringify(profile, null, 4)}</pre>
           <div>
-            <CopyToClipboard text={`Bearer ${auth0Token}`} onCopy={notify}>
+            <CopyToClipboard text={`Bearer ${idToken}`} onCopy={notify}>
               <button>Copy JWT as bearer token</button>
             </CopyToClipboard>
           </div>
