@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useCallback, useState, useMemo } from 'react';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -63,6 +64,9 @@ const Page = () => {
 
   return (
     <>
+      <Head>
+        <title>JWT返すくん</title>
+      </Head>
       {!profile && (
         <>
           Not logged in <br />
