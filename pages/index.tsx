@@ -48,8 +48,8 @@ const Page = () => {
   // ログインユーザが小松山かどうか (ガバガバ)
   const kmtym = (): Boolean => {
     if (!profile) return false;
-    if (profile?.nickname?.indexOf('kmtym') !== -1) return true;
-    if (profile?.nickname?.indexOf('r.komatsuyama') !== -1) return true;
+    if (!!~profile?.nickname?.indexOf('kmtym')) return true;
+    if (!!~profile?.nickname?.indexOf('r.komatsuyama')) return true;
 
     return false;
   };
