@@ -62,8 +62,11 @@ pre {
   overflow-x: scroll;
   text-align: left;
   font-family: 'Azeret Mono', monospace;
-  max-width: 1000px;
+  width: 1000px;
   max-height: 300px;
+  display: inline-block;
+  border-radius: 7px;
+  border: #aaa solid 5px;
 }
 
 footer h3 {
