@@ -2,14 +2,21 @@
 # yarn lockfile v1
 
 
-"@auth0/auth0-spa-js@^1.15.0":
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/@auth0/auth0-spa-js/-/auth0-spa-js-1.15.0.tgz#9fa563b7b2e49dc4c6a465a0c240078322e80159"
-  integrity sha512-d/crchAbhncl9irIMuw1zNSZgX+id0U7mzASQr2htMJ73JCYaAvBSdGXL0WcYS4yBm1Xsx1JYm3b5tEZ5p/ncg==
+"@auth0/auth0-react@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@auth0/auth0-react/-/auth0-react-1.6.0.tgz#9175d9d1ee3379aaaacfb6bed4640d56f239f59f"
+  integrity sha512-xjuNJnINMrJFbSpOSr9mjdVwfI9b+JbMKxoZy8R9Tmk3DGpBJ9eo69Im2RAeAWRISdrrxEZxNv9RAh9AQUvxEA==
   dependencies:
-    abortcontroller-polyfill "^1.7.1"
-    browser-tabs-lock "^1.2.13"
-    core-js "^3.11.0"
+    "@auth0/auth0-spa-js" "^1.16.1"
+
+"@auth0/auth0-spa-js@^1.16.1":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@auth0/auth0-spa-js/-/auth0-spa-js-1.17.0.tgz#e48057471a2a639b80c96969072f1eb9ac32dd5e"
+  integrity sha512-UqfulO/ycA9Lt3F7FKuwv3Xo+g+2bOs9kABPAz8uNvCjiwM891eRYARUKn8lLgeK30TNt2ot2DtpNHI3BVP0Jg==
+  dependencies:
+    abortcontroller-polyfill "^1.7.3"
+    browser-tabs-lock "^1.2.14"
+    core-js "^3.15.2"
     es-cookie "^1.3.2"
     fast-text-encoding "^1.0.3"
     promise-polyfill "^8.2.0"
@@ -147,7 +154,7 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.1.tgz#18845205e86ff0038517aab7a18a62a6b9f71275"
   integrity sha512-EaCxbanVeyxDRTQBkdLb3Bvl/HK7PBK6UJjsSixB0iHKoWxE5uu2Q/DgtpOhPIojN0Zl1whvOd7PoHs2P0s5eA==
 
-abortcontroller-polyfill@^1.7.1:
+abortcontroller-polyfill@^1.7.3:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/abortcontroller-polyfill/-/abortcontroller-polyfill-1.7.3.tgz#1b5b487bd6436b5b764fd52a612509702c3144b5"
   integrity sha512-zetDJxd89y3X99Kvo4qFx8GKlt6GsvN3UcRZHwU6iFA/0KiOmhkTVhe8oRoTBiTVPZu09x3vCra47+w8Yz1+2Q==
@@ -264,10 +271,10 @@ brorand@^1.0.1, brorand@^1.1.0:
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
   integrity sha1-EsJe/kCkXjwyPrhnWgoM5XsiNx8=
 
-browser-tabs-lock@^1.2.13:
-  version "1.2.14"
-  resolved "https://registry.yarnpkg.com/browser-tabs-lock/-/browser-tabs-lock-1.2.14.tgz#f4ba30810d20199a1858c102da1f91e339250728"
-  integrity sha512-ssSpCRcvFe4vc098LDnrJOQDfZiG35KhQGB9hthTbwJk5mmUkePwhcMlW61NH3YuIE2Y9uGLqf9yxEBKbaDlaw==
+browser-tabs-lock@^1.2.14:
+  version "1.2.15"
+  resolved "https://registry.yarnpkg.com/browser-tabs-lock/-/browser-tabs-lock-1.2.15.tgz#d5012e652e2a0cb4eba471b0a2300c2fa5d92788"
+  integrity sha512-J8K9vdivK0Di+b8SBdE7EZxDr88TnATing7XoLw6+nFkXMQ6sVBh92K3NQvZlZU91AIkFRi0w3sztk5Z+vsswA==
   dependencies:
     lodash ">=4.17.21"
 
@@ -496,10 +503,10 @@ copy-to-clipboard@^3:
   dependencies:
     toggle-selection "^1.0.6"
 
-core-js@^3.11.0:
-  version "3.15.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.15.0.tgz#db9554ebce0b6fd90dc9b1f2465c841d2d055044"
-  integrity sha512-GUbtPllXMYRzIgHNZ4dTYTcUemls2cni83Q4Q/TrFONHfhcg9oEGOtaGHfb0cpzec60P96UKPvMkjX1jET8rUw==
+core-js@^3.15.2:
+  version "3.17.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.17.1.tgz#b39e086f413789cf2ca4680c4ecd1b36a50ba277"
+  integrity sha512-C8i/FNpVN2Ti89QIJcFn9ZQmnM+HaAQr2OpE+ja3TRM9Q34FigsGlAVuwPGkIgydSVClo/1l1D1grP8LVt9IYA==
 
 core-util-is@~1.0.0:
   version "1.0.2"
