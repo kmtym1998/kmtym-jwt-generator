@@ -1,6 +1,8 @@
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import { Auth0Provider } from '@auth0/auth0-react';
+import AppHeader from '../components/app-header';
+import '../styles/global.css';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const SafeHydrate = dynamic(() => import('../components/SafeHydrate'), {
@@ -14,7 +16,10 @@ const App = ({ Component, pageProps }: AppProps) => {
       redirectUri={String(process.env.NEXT_PUBLIC_AUTH0_LOGOUT_URI)}
     >
       <SafeHydrate>
-        <Component {...pageProps} />
+        <AppHeader></AppHeader>
+        <main>
+          <Component {...pageProps} />
+        </main>
       </SafeHydrate>
     </Auth0Provider>
   );

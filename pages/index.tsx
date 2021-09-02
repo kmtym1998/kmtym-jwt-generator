@@ -6,6 +6,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import jwtDecode from 'jwt-decode';
 
+import { Button, Typography } from '@material-ui/core';
+
 import { notify } from '../helpers/notify';
 
 const Page = () => {
@@ -70,36 +72,69 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>JWT返すくん</title>
+        <title>JWT Generator</title>
       </Head>
       {!profile && (
         <>
-          Not logged in <br />
-          <button onClick={login}>LOG IN</button>
+          <Typography variant="h1" className={'title'}>
+            Not logged in
+          </Typography>
+          <br />
+          <Button variant="contained" className={'btn-login'} onClick={login}>
+            LOG IN
+          </Button>
         </>
       )}
       {profile && (
         <>
-          <button onClick={logout}>LOG OUT</button>
+          <Button variant="outlined" className={'btn-logout'} onClick={logout}>
+            LOG OUT
+          </Button>
           <br />
           <hr />
           <br />
-          Decoded idToken
+          <Typography variant="h2" className={'title'}>
+            Decoded payload (idToken)
+          </Typography>
           <pre>{JSON.stringify(profile, null, 4)}</pre>
           <div>
+            <Typography variant="subtitle1">Copy as ...</Typography>
             <CopyToClipboard text={`Bearer ${idToken}`} onCopy={notify}>
-              <button>Copy JWT as bearer token</button>
+              <Button variant="contained" className={'btn-copy-jwt'}>
+                bearer token
+              </Button>
+            </CopyToClipboard>
+            <CopyToClipboard
+              text={JSON.stringify(profile, null, 4)}
+              onCopy={notify}
+            >
+              <Button variant="contained" className={'btn-copy-jwt'}>
+                JSON
+              </Button>
             </CopyToClipboard>
           </div>
           <ToastContainer />
           <br />
           <hr />
           <br />
-          Decoded accessToken
+          <Typography variant="h2" className={'title'}>
+            Decoded payload (accessToken)
+          </Typography>
           <pre>{JSON.stringify(accessInfo, null, 4)}</pre>
           <div>
+            <Typography variant="subtitle1">Copy as ...</Typography>
             <CopyToClipboard text={`Bearer ${accessToken}`} onCopy={notify}>
-              <button>Copy JWT as bearer token</button>
+              <Button variant="contained" className={'btn-copy-jwt'}>
+                bearer token
+              </Button>
+            </CopyToClipboard>
+            <CopyToClipboard
+              text={JSON.stringify(accessInfo, null, 4)}
+              onCopy={notify}
+            >
+              <Button variant="contained" className={'btn-copy-jwt'}>
+                JSON
+              </Button>
             </CopyToClipboard>
           </div>
           <ToastContainer />
