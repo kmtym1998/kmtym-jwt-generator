@@ -58,11 +58,13 @@ main {
 pre {
   background-color: #191414;
   color: coral;
-  padding: 23px;
+  padding: 10px 23px;
   overflow-x: scroll;
   text-align: left;
   font-family: 'Azeret Mono', monospace;
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
+  font-size: 12px;
   max-height: 300px;
   display: inline-block;
   border-radius: 7px;
