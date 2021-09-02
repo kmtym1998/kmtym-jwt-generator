@@ -71,12 +71,21 @@ pre {
   border: #aaa solid 5px;
 }
 
+code {
+  background-color: #ddd;
+  color: coral;
+  font-family: 'Azeret Mono', monospace;
+  font-size: 13px;
+  padding: 2px 3px;
+  border-radius: 5px;
+}
+
 footer h3 {
   font-size: 37px !important;
 }
 
 footer div {
   display: inline-block;
-  max-width: 500px;
+  max-width: 600px;
   text-align: left;
 }

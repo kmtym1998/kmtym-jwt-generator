@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import jwtDecode from 'jwt-decode';
 
+import { FileCopyOutlined } from '@material-ui/icons';
 import { Button, Typography } from '@material-ui/core';
 
 import { notify } from '../helpers/notify';
@@ -147,6 +148,53 @@ const Page = () => {
             </CopyToClipboard>
           </div>
           <ToastContainer />
+        </>
+      )}
+
+      {profile && (
+        <>
+          <footer>
+            <br />
+            <hr />
+            <br />
+            <Typography gutterBottom variant="h3">
+              etc
+            </Typography>
+            <div>
+              <li>
+                Auth0 Domain Name: <code>kmtym-jwt-generator.jp.auth0.com</code>
+                <CopyToClipboard
+                  text="kmtym-jwt-generator.jp.auth0.com"
+                  onCopy={notify}
+                >
+                  <Button>
+                    <FileCopyOutlined></FileCopyOutlined>
+                  </Button>
+                </CopyToClipboard>
+              </li>
+
+              <li>
+                <a
+                  href="https://hasura.io/jwt-config/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Hasura | Generate JWT config
+                </a>
+              </li>
+
+              <li>
+                You can get JWKS{' '}
+                <a
+                  href="https://kmtym-jwt-generator.jp.auth0.com/.well-known/jwks.json"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  here
+                </a>
+              </li>
+            </div>
+          </footer>
         </>
       )}
 
