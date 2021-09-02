@@ -65,3 +65,13 @@ pre {
   max-width: 1000px;
   max-height: 300px;
 }
+
+footer h3 {
+  font-size: 37px !important;
+}
+
+footer div {
+  display: inline-block;
+  max-width: 500px;
+  text-align: left;
+}

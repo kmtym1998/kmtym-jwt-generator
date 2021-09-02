@@ -24,9 +24,9 @@ const Page = () => {
     logout: auth0Logout,
   } = useAuth0();
   const [idToken, setIdToken] = useState<string>();
-  const [profile, setProfile] = useState<Object>(); // idTokenをパースしたやつ
+  const [profile, setProfile] = useState<any>(); // idTokenをパースしたやつ
   const [accessToken, setAccessToken] = useState<string>();
-  const [accessInfo, setAccessInfo] = useState<Object>(); // accessTokenをパースしたやつ
+  const [accessInfo, setAccessInfo] = useState<any>(); // accessTokenをパースしたやつ
 
   // idToken取得〜パースするまでの処理まとめたやつ
   const setUpIdToken = async () => {
@@ -34,7 +34,7 @@ const Page = () => {
     const jwt = idTokenClaims.__raw;
     setIdToken(jwt);
     const decoded = jwtDecode(jwt);
-    if (typeof decoded === 'object') setProfile(decoded || {});
+    setProfile(decoded);
   };
 
   // accessToken取得〜パースするまでの処理まとめたやつ
@@ -42,7 +42,16 @@ const Page = () => {
     const resp = await getAccessTokenWithPopup(AUTH0_PARAM);
     setAccessToken(resp);
     const decoded = jwtDecode(resp);
-    if (typeof decoded === 'object') setAccessInfo(decoded || {});
+    setAccessInfo(decoded);
+  };
+
+  // ログインユーザが小松山かどうか (ガバガバ)
+  const kmtym = (): Boolean => {
+    if (!profile) return false;
+    if (profile?.nickname?.indexOf('kmtym') !== -1) return true;
+    if (profile?.nickname?.indexOf('r.komatsuyama') !== -1) return true;
+
+    return false;
   };
 
   const login = useCallback(async () => {
@@ -93,7 +102,7 @@ const Page = () => {
           <br />
           <hr />
           <br />
-          <Typography variant="h2" className={'title'}>
+          <Typography gutterBottom variant="h2" className={'title'}>
             Decoded payload (idToken)
           </Typography>
           <pre>{JSON.stringify(profile, null, 4)}</pre>
@@ -117,7 +126,7 @@ const Page = () => {
           <br />
           <hr />
           <br />
-          <Typography variant="h2" className={'title'}>
+          <Typography gutterBottom variant="h2" className={'title'}>
             Decoded payload (accessToken)
           </Typography>
           <pre>{JSON.stringify(accessInfo, null, 4)}</pre>
@@ -139,6 +148,54 @@ const Page = () => {
           </div>
           <ToastContainer />
         </>
+      )}
+
+      {kmtym() && (
+        <footer>
+          <br />
+          <hr />
+          <br />
+          <Typography gutterBottom variant="h3">
+            You are qualified
+          </Typography>
+          <div>
+            <li>
+              <a
+                href="https://vercel.com/kmtym1998/kmtym-jwt-generator"
+                target="_blank"
+              >
+                vercel
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://manage.auth0.com/dashboard/jp/kmtym-jwt-generator/rules/rul_lrII5L8l3FN9GKHY"
+                target="_blank"
+              >
+                Auth0 | Auth Pipeline | Rules | private-claim-creator
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://manage.auth0.com/dashboard/jp/kmtym-jwt-generator/users"
+                target="_blank"
+              >
+                Auth0 | Users
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://manage.auth0.com/dashboard/jp/kmtym-jwt-generator/applications/bDNkJDZdbZ9AIUKhLLcTEMNg1Q0XkJSv/settings"
+                target="_blank"
+              >
+                Auth0 | Applications | front
+              </a>
+            </li>
+          </div>
+        </footer>
       )}
     </>
   );
