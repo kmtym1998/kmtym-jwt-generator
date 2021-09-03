@@ -18,7 +18,7 @@ body {
 }
 
 main {
-  margin: 100px 60px;
+  margin: 100px 15px;
   text-align: center;
 }
 
@@ -69,6 +69,7 @@ pre {
   display: inline-block;
   border-radius: 7px;
   border: #aaa solid 5px;
+  box-sizing: border-box;
 }
 
 code {
@@ -76,8 +77,8 @@ code {
   color: coral;
   font-family: 'Azeret Mono', monospace;
   font-size: 13px;
-  padding: 2px 3px;
-  border-radius: 5px;
+  padding: 2px 5px;
+  border-radius: 3px;
 }
 
 footer h3 {
@@ -86,6 +87,7 @@ footer h3 {
 
 footer div {
   display: inline-block;
+  width: 100%;
   max-width: 600px;
   text-align: left;
 }
