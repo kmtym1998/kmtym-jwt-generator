@@ -1,6 +1,7 @@
-# spa-nextjs-auth0-demo
+# kmtym-jwt-generator
 
 ```bash
 $ yarn
-$ yarn dev
+$ yarn s
+$ cp .env.example .env.local
 ```
