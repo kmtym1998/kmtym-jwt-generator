@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "s": "next dev",
-    "build": "next build",
-    "export": "next export",
-    "deploy": "yarn build && yarn export"
+    "build": "next build"
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.6.0",
