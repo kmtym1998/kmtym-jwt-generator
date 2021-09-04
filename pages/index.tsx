@@ -17,6 +17,8 @@ const Page = () => {
     audience: process.env.NEXT_PUBLIC_AUTH0_AUDIENCE,
     scope: 'read:current_user',
   };
+  const AUTH0_DOMAIN_NAME = 'kmtym-jwt-generator.jp.auth0.com';
+  const PRV_CLAIM_KEY = 'https://kmtym-jwt-generator.vercel.app/';
 
   // ステートの初期化？
   const {
@@ -162,11 +164,17 @@ const Page = () => {
             </Typography>
             <div>
               <li>
-                Auth0 Domain Name: <code>kmtym-jwt-generator.jp.auth0.com</code>
-                <CopyToClipboard
-                  text="kmtym-jwt-generator.jp.auth0.com"
-                  onCopy={notify}
-                >
+                Auth0 Domain Name: <code>{AUTH0_DOMAIN_NAME}</code>
+                <CopyToClipboard text={AUTH0_DOMAIN_NAME} onCopy={notify}>
+                  <Button>
+                    <FileCopyOutlined></FileCopyOutlined>
+                  </Button>
+                </CopyToClipboard>
+              </li>
+
+              <li>
+                Private Claim name: <code>{PRV_CLAIM_KEY}</code>
+                <CopyToClipboard text={PRV_CLAIM_KEY} onCopy={notify}>
                   <Button>
                     <FileCopyOutlined></FileCopyOutlined>
                   </Button>
