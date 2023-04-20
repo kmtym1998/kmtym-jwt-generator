@@ -63,8 +63,13 @@ const Page = () => {
   const logout = useCallback(() => {
     auth0Logout({
       async openUrl(url) {
-        console.log({ url });
-        window.location.replace(url);
+        const u = new URL(url);
+        u.searchParams.append(
+          'returnTo',
+          process.env.NEXT_PUBLIC_AUTH0_LOGOUT_URI || '/',
+        );
+
+        window.location.replace(u.toString());
       },
     });
   }, []);
