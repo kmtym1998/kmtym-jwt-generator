@@ -1,9 +1,11 @@
-import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import { AppBar, Toolbar } from '@mui/material';
 
-export default function AppHeader(): JSX.Element {
+const AppHeader = (): JSX.Element => {
   return (
     <AppBar>
       <Toolbar className={'h-toolbar'}>JWT Generator</Toolbar>
     </AppBar>
   );
-}
+};
+
+export default AppHeader;

@@ -5,10 +5,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import jwtDecode from 'jwt-decode';
-
-import { FileCopyOutlined } from '@material-ui/icons';
-import { Button, Typography } from '@material-ui/core';
-
+import { FileCopyOutlined } from '@mui/icons-material';
+import { Button, Typography } from '@mui/material';
 import { notify } from '../helpers/notify';
 
 const Page = () => {
@@ -33,18 +31,18 @@ const Page = () => {
 
   // idToken取得〜パースするまでの処理まとめたやつ
   const setUpIdToken = async () => {
-    const idTokenClaims = await getIdTokenClaims(AUTH0_PARAM);
-    const jwt = idTokenClaims.__raw;
+    const idTokenClaims = await getIdTokenClaims();
+    const jwt = idTokenClaims?.__raw;
     setIdToken(jwt);
-    const decoded = jwtDecode(jwt);
+    const decoded = jwtDecode(jwt || '');
     setProfile(decoded);
   };
 
   // accessToken取得〜パースするまでの処理まとめたやつ
   const setUpAccessToken = async () => {
-    const resp = await getAccessTokenWithPopup(AUTH0_PARAM);
-    setAccessToken(resp);
-    const decoded = jwtDecode(resp);
+    const jwt = await getAccessTokenWithPopup();
+    setAccessToken(jwt);
+    const decoded = jwtDecode(jwt || '');
     setAccessInfo(decoded);
   };
 
@@ -68,7 +66,11 @@ const Page = () => {
 
   const logout = useCallback(() => {
     auth0Logout({
-      returnTo: process.env.NEXT_PUBLIC_AUTH0_LOGOUT_URI,
+      async openUrl() {
+        window.location.replace(
+          process.env.NEXT_PUBLIC_AUTH0_LOGOUT_URI || '/',
+        );
+      },
     });
   }, []);
 

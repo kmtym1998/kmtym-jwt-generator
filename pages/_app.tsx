@@ -13,7 +13,6 @@ const App = ({ Component, pageProps }: AppProps) => {
     <Auth0Provider
       domain={String(process.env.NEXT_PUBLIC_AUTH0_DOMAIN)}
       clientId={String(process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID)}
-      redirectUri={String(process.env.NEXT_PUBLIC_AUTH0_LOGOUT_URI)}
     >
       <SafeHydrate>
         <AppHeader></AppHeader>
