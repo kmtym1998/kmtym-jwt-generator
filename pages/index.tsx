@@ -61,7 +61,11 @@ const Page = () => {
   }, []);
 
   const logout = useCallback(() => {
-    auth0Logout();
+    auth0Logout({
+      async openUrl(url) {
+        window.location.replace(url);
+      },
+    });
   }, []);
 
   // useMemoってなに？
