@@ -13,6 +13,11 @@ const App = ({ Component, pageProps }: AppProps) => {
     <Auth0Provider
       domain={String(process.env.NEXT_PUBLIC_AUTH0_DOMAIN)}
       clientId={String(process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID)}
+      authorizationParams={{
+        audience: process.env.NEXT_PUBLIC_AUTH0_AUDIENCE,
+        redirect_uri: process.env.NEXT_PUBLIC_AUTH0_REDIRECT_URI,
+        scope: 'read:current_user',
+      }}
     >
       <SafeHydrate>
         <AppHeader></AppHeader>

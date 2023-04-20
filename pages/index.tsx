@@ -11,10 +11,6 @@ import { notify } from '../helpers/notify';
 
 const Page = () => {
   // auth0を呼ぶときのパラメータ
-  const AUTH0_PARAM = {
-    audience: process.env.NEXT_PUBLIC_AUTH0_AUDIENCE,
-    scope: 'read:current_user',
-  };
   const AUTH0_DOMAIN_NAME = 'kmtym-jwt-generator.jp.auth0.com';
   const PRV_CLAIM_KEY = 'https://kmtym-jwt-generator.vercel.app/';
 
@@ -65,13 +61,7 @@ const Page = () => {
   }, []);
 
   const logout = useCallback(() => {
-    auth0Logout({
-      async openUrl() {
-        window.location.replace(
-          process.env.NEXT_PUBLIC_AUTH0_LOGOUT_URI || '/',
-        );
-      },
-    });
+    auth0Logout();
   }, []);
 
   // useMemoってなに？
